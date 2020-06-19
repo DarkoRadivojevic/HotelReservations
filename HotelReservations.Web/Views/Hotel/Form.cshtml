@@ -1,0 +1,37 @@
+﻿@model HotelReservations.Web.Models.Reservation
+
+<div class="justify-content-center ml-3">Add booking</div>
+@using (Html.BeginForm("Form", "Hotel", FormMethod.Post))
+{
+	<div class="form-group">
+		@Html.LabelFor(m => m.StartDate, new { @class = "col control-label" })
+		<div class="col-md-10">
+			@Html.TextBoxFor(m => m.StartDate, new { @class = "form-control form-control-sm" })
+			@Html.ValidationMessageFor(m => m.StartDate, "", new { @class = "text-danger" })
+		</div>
+	</div>
+	<div class="form-group">
+		@Html.LabelFor(m => m.EndDate, new { @class = "col control-label" })
+		<div class="col-md-10">
+			@Html.TextBoxFor(m => m.EndDate, new { @class = "form-control form-control-sm" })
+			@Html.ValidationMessageFor(m => m.EndDate, "", new { @class = "text-danger" })
+		</div>
+	</div>
+	<div class="form-group justify-content-center ml-3">
+		<input type="submit" value="Add Days" class=" btn btn-sm btn-success" />
+	</div>
+
+}
+<div class="m3 mb-3 text-center">
+	@if (Model != null)
+	{
+		@if (Model.Accepted)
+		{
+			<div class="ml-3 bg-success font-weight-bold">Booking accepted</div>
+		}
+		else
+		{
+			<div class="ml-3 bg-danger font-weight-bold">Booking declined</div>
+		}
+	}
+</div>

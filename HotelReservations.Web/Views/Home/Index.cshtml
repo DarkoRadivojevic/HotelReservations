@@ -1,0 +1,12 @@
+﻿@{
+	ViewData["Title"] = "Home Page";
+}
+
+@model HotelReservations.Web.Models.Both
+
+<div>
+	@{
+		Html.RenderPartial("~/Views/Hotel/Form.cshtml", Model.Reservation);
+		Html.RenderPartial("~/Views/Hotel/Hotel.cshtml", Model.Hotel);
+	}
+</div>

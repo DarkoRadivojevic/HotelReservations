@@ -1,0 +1,32 @@
+﻿@model HotelReservations.Web.Models.Hotel
+
+<div class="ml-3">
+
+	<table class="table table-bordered table-responsive table-hover">
+		<tr>
+			<th class="invisible"></th>
+			@for (int j = 0; j < Model.Days; j++)
+			{
+				<th>Day @j</th>
+			}
+		</tr>
+
+		@for (int j = 0; j < Model.Size; j++)
+		{
+			<tr>
+				<th>Room @(j+1)</th>
+				@for (int i = 0; i < Model.Days; i++)
+				{
+					if (Model.Bookings[j, i] == 0)
+					{
+						<td style="background-color:green"></td>
+					}
+					else
+					{
+						<td style="background-color:red"></td>
+					}
+				}
+			</tr>
+		}
+	</table>
+</div>
