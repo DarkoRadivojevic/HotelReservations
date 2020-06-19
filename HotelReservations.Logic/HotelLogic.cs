@@ -54,7 +54,7 @@ namespace HotelReservations.Logic
 
 		public int testRoomAvailability(int start, int end)
 		{
-			if (start < 0 || end < 0 || start > days || end > days || start > end)
+			if (start < 0 || end < 0 || start >= days || end >= days || start > end)
 				return -1;
 
 			bool flag = false;
