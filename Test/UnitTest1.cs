@@ -2,6 +2,7 @@ using HotelReservations.Logic;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Test
 {
@@ -68,7 +69,7 @@ namespace Test
 		{
 			HotelLogic hotel = new HotelLogic(3, 365);
 
-			bool result = true;
+			List<bool> results = new List<bool>();
 
 			var dates = new List<Tuple<int, int>>(6);
 
@@ -79,16 +80,19 @@ namespace Test
 
 			for (int i = 0; i < dates.Count; i++)
 			{
-				result = hotel.addReservation(dates[i].Item1, dates[i].Item2);
-
-				if (!result)
-					break;
+				results.Add(hotel.addReservation(dates[i].Item1, dates[i].Item2));
 			}
+			List<bool> expected = new List<bool>();
 
-			if (result)
-				Assert.Fail("All reservation accepted");
-			else
+			expected.Add(true);
+			expected.Add(true);
+			expected.Add(true);
+			expected.Add(false);
+
+			if (results.SequenceEqual(expected))
 				Assert.Pass("Not all reservations accepted");
+			else
+				Assert.Fail("All reservation accepted");
 		}
 
 		[Test]
@@ -96,7 +100,7 @@ namespace Test
 		{
 			HotelLogic hotel = new HotelLogic(3, 365);
 
-			bool result = true;
+			List<bool> results = new List<bool>();
 
 			var dates = new List<Tuple<int, int>>(6);
 
@@ -108,13 +112,21 @@ namespace Test
 
 			for (int i = 0; i < dates.Count; i++)
 			{
-				result = hotel.addReservation(dates[i].Item1, dates[i].Item2);
+				results.Add(hotel.addReservation(dates[i].Item1, dates[i].Item2));
 			}
 
-			if (!result)
-				Assert.Fail("All reservation accepted");
-			else
+			List<bool> expected = new List<bool>();
+
+			expected.Add(true);
+			expected.Add(true);
+			expected.Add(true);
+			expected.Add(false);
+			expected.Add(true);
+
+			if (results.SequenceEqual(expected))
 				Assert.Pass("Not all reservations accepted");
+			else
+				Assert.Fail("All reservation accepted");
 		}
 
 		[Test]
@@ -122,7 +134,7 @@ namespace Test
 		{
 			HotelLogic hotel = new HotelLogic(2, 16);
 
-			bool result = true;
+			List<bool> results = new List<bool>();
 
 			var dates = new List<Tuple<int, int>>(6);
 
@@ -138,13 +150,25 @@ namespace Test
 
 			for (int i = 0; i < dates.Count; i++)
 			{
-				result = hotel.addReservation(dates[i].Item1, dates[i].Item2);
+				results.Add(hotel.addReservation(dates[i].Item1, dates[i].Item2));
 			}
 
-			if (!result)
-				Assert.Fail("All reservation accepted");
-			else
+			List<bool> expected = new List<bool>();
+
+			expected.Add(true);
+			expected.Add(true);
+			expected.Add(false);
+			expected.Add(true);
+			expected.Add(false);
+			expected.Add(true);
+			expected.Add(true);
+			expected.Add(true);
+			expected.Add(true);
+
+			if (results.SequenceEqual(expected))
 				Assert.Pass("Not all reservations accepted");
+			else
+				Assert.Fail("All reservation accepted");
 		}
 	}
 }

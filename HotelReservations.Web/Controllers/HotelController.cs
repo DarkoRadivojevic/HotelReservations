@@ -1,7 +1,6 @@
 ﻿using HotelReservations.Logic;
 using HotelReservations.Web.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Caching.Memory;
 
 namespace HotelReservations.Web.Controllers
 {
@@ -24,7 +23,7 @@ namespace HotelReservations.Web.Controllers
 		{
 			hotelLogic = new HotelLogic();
 
-			Both both = new Both(5, 15);
+			Both both = new Both(2, 15);
 			hotel.Bookings = hotelLogic.bookings;
 			hotel.Size = hotelLogic.size;
 			hotel.Days = hotelLogic.days;
@@ -37,7 +36,7 @@ namespace HotelReservations.Web.Controllers
 
 		public IActionResult Form(Reservation reservation)
 		{
-			Both both = new Both(5, 15);
+			Both both = new Both(2, 15);
 
 			reservation.Accepted = hotelLogic.addReservation(reservation.StartDate, reservation.EndDate);
 

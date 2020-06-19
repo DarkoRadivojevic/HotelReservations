@@ -1,8 +1,4 @@
-﻿using System;
-using System.ComponentModel;
-using System.Threading;
-
-namespace HotelReservations.Logic
+﻿namespace HotelReservations.Logic
 {
 	public class HotelLogic
 	{
@@ -15,7 +11,7 @@ namespace HotelReservations.Logic
 
 		public HotelLogic()
 		{
-			size = 5;
+			size = 2;
 
 			days = 15;
 

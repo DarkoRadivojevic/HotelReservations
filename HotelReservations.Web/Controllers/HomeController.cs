@@ -1,7 +1,7 @@
-﻿using System.Diagnostics;
+﻿using HotelReservations.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using HotelReservations.Web.Models;
+using System.Diagnostics;
 
 namespace HotelReservations.Web.Controllers
 {
@@ -16,7 +16,7 @@ namespace HotelReservations.Web.Controllers
 
 		public IActionResult Index()
 		{
-			return View(new Both(5, 15));
+			return View(new Both(2, 15));
 		}
 
 		public IActionResult Privacy()

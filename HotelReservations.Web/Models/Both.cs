@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace HotelReservations.Web.Models
+﻿namespace HotelReservations.Web.Models
 {
 	public class Both
 	{
@@ -15,8 +10,8 @@ namespace HotelReservations.Web.Models
 		{
 			Hotel = new Hotel(size, days)
 			{
-				Size = 5,
-				Days = 15
+				Size = size,
+				Days = days
 			};
 			Reservation = new Reservation();
 		}
